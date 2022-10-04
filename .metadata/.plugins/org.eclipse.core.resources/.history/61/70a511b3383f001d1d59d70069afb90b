@@ -1,0 +1,20 @@
+package org.acme;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class ExtensionDTO {
+
+	@JsonProperty( "id" )
+	public String extensionId;
+	
+	@JsonProperty( "name" )
+    public String name;
+	
+	@JsonProperty( "shortName" )
+    public String shortName;
+	
+	@JsonProperty( "keywords" )
+    public List<String> keywords;
+}

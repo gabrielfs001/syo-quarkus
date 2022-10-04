@@ -1,0 +1,17 @@
+package br.com.syonet.business;
+
+import java.util.Objects;
+
+import br.com.syonet.entidade.Autor;
+import br.com.syonet.repository.AutorRepository;
+
+public class AutorBusiness {
+	private AutorRepository dao = new AutorRepository();
+	
+	public void salva ( Autor registro ) {
+		if ( Objects.isNull(registro) ) {
+			throw new NullPointerException ("Registro está nulo!");
+		}
+		this.dao.salva(registro);
+	}
+}

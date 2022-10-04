@@ -1,0 +1,9 @@
+package br.com.syonet.repository;
+
+import br.com.syonet.entidade.Autor;
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
+
+public class AutorRepository implements IAutorRepository{
+
+}

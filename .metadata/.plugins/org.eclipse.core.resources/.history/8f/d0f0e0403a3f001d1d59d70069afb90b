@@ -1,0 +1,36 @@
+package org.acme;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class ExtensionDTO {
+	//Necessário construtor vazio quando são privates
+	@JsonProperty( "id" )
+	private String extensionId;
+	
+	@JsonProperty( "name" )
+    private String name;
+	
+	@JsonProperty( "shortName" )
+	private String shortName;
+	
+	@JsonProperty( "keywords" )
+	private List<String> keywords;
+	
+	@JsonProperty( "tags" )
+	private List<String> tags;
+
+	public ExtensionDTO() {
+		super();
+	}
+	
+	public ExtensionDTO(String extensionId, String name, String shortName, List<String> keywords, List<String> tags) {
+		super();
+		this.extensionId = extensionId;
+		this.name = name;
+		this.shortName = shortName;
+		this.keywords = keywords;
+		this.tags = tags;
+	}
+}

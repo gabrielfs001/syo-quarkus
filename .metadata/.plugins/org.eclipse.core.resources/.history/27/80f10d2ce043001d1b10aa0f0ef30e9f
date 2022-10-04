@@ -1,0 +1,39 @@
+package br.com.syonet.repository;
+
+import java.util.List;
+
+import br.com.syonet.entidade.Autor;
+import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
+
+public class AutorRepository implements IAutorRepository, PanacheRepositoryBase<Autor, Integer>{
+
+	@Override
+	public void saveAutor(Autor autor) {
+		this.persist(autor);
+	}
+
+	@Override
+	public void updateAutor(Autor autor) {
+		this.findByIdOptional( autor.getId()  ).ifPresentOrElse( persistedAutor -> {
+			persistedAutor.setNome( autor.getNome() );
+			persistedAutor.setSobrenome( autor.getSobrenome() );
+			persistedAutor.setLocalNascimento( autor.getLocalNascimento() );
+			persistedAutor.setDataNascimento( autor.getDataNascimento() );
+		}, null);
+	}
+	
+	@Override
+	public List<Autor> getAllAutores() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Autor getById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+}

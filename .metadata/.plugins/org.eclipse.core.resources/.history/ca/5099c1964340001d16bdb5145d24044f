@@ -1,0 +1,68 @@
+package br.com.syonet.entidade;
+
+import java.util.List;
+
+@Entity
+public class Autor {
+	
+	@Id
+	@GeneratedValue ( strategy = GenerationType.IDENTITY )
+	private Integer id;
+	
+	@Column
+	private String nome;
+	
+	@Column
+	private String sobrenome;
+	
+	@Column
+	private long dataNascimento;
+	
+	@Column
+	private String localNascimento;
+	
+	public Autor() {
+	}
+	
+	public Autor(String nome, String sobrenome, long dataNascimento, String localNascimento,
+			List<Livro> livros) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.dataNascimento = dataNascimento;
+		this.localNascimento = localNascimento;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getSobrenome() {
+		return sobrenome;
+	}
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
+	public long getDataNascimento() {
+		return dataNascimento;
+	}
+	public void setDataNascimento(long dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+	public String getLocalNascimento() {
+		return localNascimento;
+	}
+	public void setLocalNascimento(String localNascimento) {
+		this.localNascimento = localNascimento;
+	}
+	
+	public String toString() {
+		return " " + getNome();
+	}
+}

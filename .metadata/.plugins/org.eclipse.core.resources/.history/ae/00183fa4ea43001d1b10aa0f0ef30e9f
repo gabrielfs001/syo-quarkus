@@ -1,0 +1,27 @@
+package br.com.syonet.resources;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import br.com.syonet.entity.Autor;
+import br.com.syonet.service.AutorService;
+
+@Path( "/api/autor" )
+public class AutorResource {
+
+	@Inject
+	AutorService service;
+	
+	@GET
+	@Produces( MediaType.APPLICATION_JSON )
+	public Response getAllAutores() {
+		List< Autor > autores = this.service.getAllAutores();
+		return Response.ok( autores ).build();
+	}
+}

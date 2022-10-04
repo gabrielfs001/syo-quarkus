@@ -1,0 +1,11 @@
+package br.com.syonet.resources;
+
+import javax.ws.rs.Path;
+
+@Path( "/api/autor" )
+public class AutorResource {
+
+	@GET
+	@Produces( MediaType.APPLICATION_JSON )
+	
+}

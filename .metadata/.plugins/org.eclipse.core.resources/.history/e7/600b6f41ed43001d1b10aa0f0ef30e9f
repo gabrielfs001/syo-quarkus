@@ -1,0 +1,22 @@
+package br.com.syonet.repository;
+
+import java.util.List;
+
+import javax.enterprise.context.ApplicationScoped;
+
+import br.com.syonet.entity.Livro;
+
+@ApplicationScoped
+public interface ILivroRepository {
+	void saveLivro( Livro livro );
+	
+	void updateLivro( Livro livro );
+	
+	List < Livro > getAllLivros();
+	
+	Livro getLivroById( Integer id );
+	
+	Livro getLivroByTitulo ( String titulo );
+	
+	void deleteLivro ( Livro livro );
+}

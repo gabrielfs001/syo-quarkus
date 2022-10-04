@@ -1,0 +1,11 @@
+package br.com.syonet.repository;
+
+public interface IAutorRepository {
+	
+	void saveAutor ( Autor autor );
+	
+	List < Autor > getAllAutores();
+	
+	Autor getById( Integer id );
+
+}

@@ -1,0 +1,11 @@
+package br.com.syonet.service;
+
+public class AutorService {
+
+	@Inject
+	IClientRepository repository;
+	
+	public void saveAutor( Autor autor ) {
+		this.repository.saveAutor( autor );
+	}
+}

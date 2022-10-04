@@ -1,0 +1,12 @@
+package org.acme;
+
+import java.util.List;
+
+public class Extension {
+
+	@JsonProperty( "id" )
+	public String extensionId;
+    public String name;
+    public String shortName;
+    public List<String> keywords;
+}

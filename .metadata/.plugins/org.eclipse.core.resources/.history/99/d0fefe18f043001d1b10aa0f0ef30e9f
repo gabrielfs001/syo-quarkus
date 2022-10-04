@@ -1,0 +1,13 @@
+package br.com.syonet.resources;
+
+import javax.inject.Inject;
+import javax.ws.rs.Path;
+
+import br.com.syonet.service.LivroService;
+
+@Path( "/api/livro" )
+public class LivroResource {
+
+	@Inject
+	LivroService service;
+}

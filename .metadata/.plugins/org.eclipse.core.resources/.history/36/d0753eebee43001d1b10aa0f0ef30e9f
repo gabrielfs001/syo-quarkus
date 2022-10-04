@@ -1,0 +1,11 @@
+package br.com.syonet.service;
+
+import javax.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped
+public class LivroService {
+	
+	@Inject
+	ILivroRepository repository;
+
+}

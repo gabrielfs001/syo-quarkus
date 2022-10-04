@@ -1,0 +1,8 @@
+package br.com.syonet.resources;
+
+import javax.ws.rs.Path;
+
+@Path( "/api/livro" )
+public class LivroResource {
+
+}

@@ -1,0 +1,20 @@
+package br.com.syonet.service;
+
+import javax.inject.Inject;
+
+import br.com.syonet.entity.Autor;
+import br.com.syonet.repository.IAutorRepository;
+
+public class AutorService {
+
+	@Inject
+	IAutorRepository repository;
+	
+	public void saveAutor( Autor autor ) {
+		this.repository.saveAutor( autor );
+	}
+	
+	public void updateAutor( Autor autor ) {
+		this.repository.updateAutor( autor );
+	}
+}

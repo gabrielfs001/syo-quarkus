@@ -1,0 +1,6 @@
+package br.com.syonet.resources;
+
+@Path( "/api/livro" )
+public class LivroResource {
+
+}

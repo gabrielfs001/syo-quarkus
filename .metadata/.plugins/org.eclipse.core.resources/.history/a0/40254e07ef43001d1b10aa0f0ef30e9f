@@ -1,0 +1,18 @@
+package br.com.syonet.service;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+
+import br.com.syonet.repository.ILivroRepository;
+
+@ApplicationScoped
+public class LivroService {
+	
+	@Inject
+	ILivroRepository repository;
+	
+	public void saveLivro ( Livro livro ) {
+		this.repository.saveLivro(livro);
+	}
+
+}

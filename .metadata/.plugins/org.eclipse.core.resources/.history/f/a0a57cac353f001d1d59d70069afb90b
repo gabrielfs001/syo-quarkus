@@ -1,0 +1,52 @@
+package org.acme;
+
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+
+@Path("/api")
+public class GreetingResource {
+	
+	@Inject
+	@RestClient
+	MyRemoteService service;
+	
+	
+	
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
+        return "Hello RESTEasy";
+    }
+    
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String helloWithQuery( @QueryParam ( value = "query" ) String query )  {
+        return "Hello RESTEasy -> " + query;
+    }
+    
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path ( "hello/{id}" )
+    public String helloWithId( @PathParam( value = "id" ) Integer id ) {
+        return "Hello RESTEasy -> " + id;
+    }
+    
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path ( "hello/{id}/{secondId}" )
+    public String helloWithId( @PathParam( value = "id" ) Integer id,
+    		@PathParam( value = "secondId" ) Integer secondId ) {
+        return "Hello RESTEasy -> " + id + " " + secondId;
+    }
+    
+    @GET
+    @Produces ( MediaType.APPLICATION_JSON )
+    @Path
+}
