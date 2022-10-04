@@ -3,6 +3,7 @@ package br.com.syonet.resources;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -14,6 +15,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+
 import br.com.syonet.entity.Livro;
 import br.com.syonet.service.LivroService;
 
@@ -24,6 +28,11 @@ public class LivroResource {
 	LivroService service;
 	
 	@GET
+	@APIResponses({
+			@APIResponse( responseCode = "200",
+				description = "Retorno com sucesso da lista de todos os livros" ),
+			@APIResponse( responseCode = "400",
+				description = "Em casos de erro genérico" )})
 	@Produces( MediaType.APPLICATION_JSON )
 	public Response getAllLivros() {
 		List< Livro > livros = this.service.getAllLivros();
@@ -31,30 +40,50 @@ public class LivroResource {
 	}
 	
 	@GET
+	@APIResponses({
+		@APIResponse( responseCode = "200",
+			description = "Retorno com sucesso de um livro buscado por Id" ),
+		@APIResponse( responseCode = "400",
+			description = "Em casos de erro genérico" )})
 	@Path( "/{id}" )
 	@Produces( MediaType.APPLICATION_JSON )
 	public Response getAllLivros( @PathParam( value = "id" ) Integer id ) {
-		Livro livro = this.service.getLivroById(id);
+		Livro livro = this.service.getLivroById( id );
 		return Response.ok( livro ).build();
 	}
 	
 	@GET
+	@APIResponses({
+		@APIResponse( responseCode = "200",
+			description = "Retorno com sucesso de um livro buscado por Título" ),
+		@APIResponse( responseCode = "400",
+			description = "Em casos de erro genérico" )})
 	@Path( "/{titulo}" )
 	@Produces( MediaType.APPLICATION_JSON )
 	public Response getAllLivros( @PathParam( value = "titulo" ) String titulo ) {
-		Livro livro = this.service.getLivroByTitulo(titulo);
+		Livro livro = this.service.getLivroByTitulo( titulo );
 		return Response.ok( livro ).build();
 	}
 	
 	@POST
+	@APIResponses({
+		@APIResponse( responseCode = "200",
+			description = "Livro salvo com sucesso" ),
+		@APIResponse( responseCode = "400",
+			description = "Em casos de erro genérico" )})
 	@Produces( MediaType.APPLICATION_JSON )
 	@Consumes( MediaType.APPLICATION_JSON )
-	public Response saveLivro ( Livro livro ) {
+	public Response saveLivro ( @Valid Livro livro ) {
 		this.service.saveLivro( livro );
 		return Response.accepted().build();
 	}
 	
 	@PATCH
+	@APIResponses({
+		@APIResponse( responseCode = "200",
+			description = "Livro editado com sucesso" ),
+		@APIResponse( responseCode = "400",
+			description = "Em casos de erro genérico" )})
 	@Produces( MediaType.APPLICATION_JSON )
 	@Consumes( MediaType.APPLICATION_JSON )
 	public Response updateLivro ( Livro livro ) {
@@ -63,6 +92,11 @@ public class LivroResource {
 	}
 	
 	@DELETE
+	@APIResponses({
+		@APIResponse( responseCode = "200",
+			description = "Livro deletado com sucesso" ),
+		@APIResponse( responseCode = "400",
+			description = "Em casos de erro genérico" )})
 	@Produces( MediaType.APPLICATION_JSON )
 	@Consumes( MediaType.APPLICATION_JSON )
 	public Response deleteLivro ( Livro livro ) {

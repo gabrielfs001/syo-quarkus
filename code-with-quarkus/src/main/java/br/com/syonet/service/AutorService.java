@@ -26,8 +26,8 @@ public class AutorService {
 		return this.repository.getAllAutores();
 	}
 	
-	public Autor getById( Integer id ) {
-		return this.repository.getById(id);
+	public Autor getAutorById( Integer id ) {
+		return this.repository.getAutorById(id);
 	}
 	
 	public Autor getByName( String name ) {

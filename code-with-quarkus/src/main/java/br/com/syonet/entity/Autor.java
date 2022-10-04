@@ -1,6 +1,5 @@
 package br.com.syonet.entity;
 
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,10 +12,11 @@ import javax.persistence.Table;
 public class Autor {
 	
 	@Id
+	@Column( name = "id" )
 	@GeneratedValue ( strategy = GenerationType.IDENTITY )
 	private Integer id;
 	
-	@Column
+	@Column( name = "nome")
 	private String nome;
 	
 	@Column
@@ -31,8 +31,8 @@ public class Autor {
 	public Autor() {
 	}
 	
-	public Autor(String nome, String sobrenome, long dataNascimento, String localNascimento,
-			List<Livro> livros) {
+	public Autor(String nome, String sobrenome, long dataNascimento, String localNascimento) {
+		super();
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.dataNascimento = dataNascimento;

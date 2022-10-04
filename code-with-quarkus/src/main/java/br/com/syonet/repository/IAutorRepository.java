@@ -15,7 +15,7 @@ public interface IAutorRepository {
 	
 	List < Autor > getAllAutores();
 	
-	Autor getById( Integer id );
+	Autor getAutorById( Integer id );
 	
 	Autor getByName ( String nome );
 	

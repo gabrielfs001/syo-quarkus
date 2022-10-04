@@ -14,10 +14,11 @@ import javax.persistence.Table;
 public class Livro {
 	
 	@Id
+	@Column( name = "id" )
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private Integer id;
 	
-	@Column(nullable = false)
+	@Column( name = "titulo")
 	private String titulo;
 	
 	@Column
@@ -40,6 +41,7 @@ public class Livro {
 	
 	public Livro( String titulo, String tituloOriginal, String editora, Integer numeroPaginas,
 			Integer numeroEdicao, List<Autor> autores) {
+		super();
 		this.titulo = titulo;
 		this.tituloOriginal = tituloOriginal;
 		this.editora = editora;
