@@ -30,8 +30,8 @@ public class AutorService {
 		return this.repository.getAutorById(id);
 	}
 	
-	public Autor getByName( String name ) {
-		return this.repository.getByName(name);
+	public Autor getAutorByName( String name ) {
+		return this.repository.getAutorByName(name);
 	}
 	
 	public void deleteAutor( Autor autor ) {

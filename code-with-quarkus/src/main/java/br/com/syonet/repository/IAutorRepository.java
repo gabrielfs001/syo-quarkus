@@ -17,7 +17,7 @@ public interface IAutorRepository {
 	
 	Autor getAutorById( Integer id );
 	
-	Autor getByName ( String nome );
+	Autor getAutorByName ( String nome );
 	
 	void deleteAutor ( Autor autor );
 }

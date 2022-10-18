@@ -47,7 +47,7 @@ public class LivroResource {
 			description = "Em casos de erro genérico" )})
 	@Path( "/{id}" )
 	@Produces( MediaType.APPLICATION_JSON )
-	public Response getAllLivros( @PathParam( value = "id" ) Integer id ) {
+	public Response getLivrosById( @PathParam( value = "id" ) Integer id ) {
 		Livro livro = this.service.getLivroById( id );
 		return Response.ok( livro ).build();
 	}
@@ -58,9 +58,9 @@ public class LivroResource {
 			description = "Retorno com sucesso de um livro buscado por Título" ),
 		@APIResponse( responseCode = "400",
 			description = "Em casos de erro genérico" )})
-	@Path( "/{titulo}" )
+	@Path( "search/{titulo}" )
 	@Produces( MediaType.APPLICATION_JSON )
-	public Response getAllLivros( @PathParam( value = "titulo" ) String titulo ) {
+	public Response getLivroByTitulo( @PathParam( value = "titulo" ) String titulo ) {
 		Livro livro = this.service.getLivroByTitulo( titulo );
 		return Response.ok( livro ).build();
 	}

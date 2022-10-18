@@ -19,22 +19,22 @@ public class LivroService {
 	}
 	
 	public void updateLivro ( Livro livro ) {
-		this.repository.updateLivro(livro);
+		this.repository.updateLivro( livro );
 	}
 	
 	public List< Livro > getAllLivros() {
 		return this.repository.getAllLivros();
 	}
 	
-	public Livro getLivroById(Integer id) {
-		return this.repository.getLivroById(id);
+	public Livro getLivroById( Integer id ) {
+		return this.repository.getLivroById( id );
 	}
 	
 	public Livro getLivroByTitulo( String titulo ) {
-		return this.repository.getLivroByTitulo(titulo);
+		return this.repository.getLivroByTitulo( titulo );
 	}
 	
 	public void deleteLivro( Livro livro ) {
-		this.repository.deleteLivro(livro);
+		this.repository.deleteLivro( livro );
 	}
 }

@@ -40,8 +40,8 @@ public class AutorRepository implements IAutorRepository, PanacheRepositoryBase<
 	}
 
 	@Override
-	public Autor getByName(String nome) {
-		return this.find("nome", nome).firstResult();
+	public Autor getAutorByName(String nome) {
+		return this.find( "nome" , nome ).firstResult();
 	}
 
 	@Override

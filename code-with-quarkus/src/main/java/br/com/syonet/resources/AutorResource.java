@@ -47,7 +47,7 @@ public class AutorResource {
 			description = "Em casos de erro genérico" )})
 	@Path( "/{id}" )
 	@Produces( MediaType.APPLICATION_JSON )
-	public Response getAllAutores( @PathParam( value = "id" ) Integer id ) {
+	public Response getAutoresById( @PathParam( value = "id" ) Integer id ) {
 		Autor autor = this.service.getAutorById( id );
 		return Response.ok( autor ).build();
 	}
@@ -58,10 +58,10 @@ public class AutorResource {
 			description = "Retorno com sucesso de um autor buscado por nome" ),
 		@APIResponse( responseCode = "400",
 			description = "Em casos de erro genérico" )})
-	@Path( "/{nome}" )
+	@Path( "search/{nome}" )
 	@Produces( MediaType.APPLICATION_JSON )
-	public Response getAllAutores( @PathParam( value = "nome" ) String nome ) {
-		Autor autor = this.service.getByName( nome );
+	public Response getAutoresByName( @PathParam( value = "nome" ) String nome ) {
+		Autor autor = this.service.getAutorByName( nome );
 		return Response.ok( autor ).build();
 	}
 	
